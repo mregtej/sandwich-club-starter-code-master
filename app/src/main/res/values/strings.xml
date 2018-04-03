@@ -16,6 +16,14 @@
     <string name="description_tv_hint">Sandwich desc.</string>
     <string name="ingredients_tv_hint">Ingredients list</string>
 
+    <!-- Default Strings (empty JSON values) -->
+    <string name="no_main_name_json_value">Unknown</string>
+    <string name="no_also_known_json_value">Unknown alias</string>
+    <string name="no_origin_json_value">Unknown origin</string>
+    <string name="no_description_json_value">Empty description</string>
+    <string name="no_image_json_value">android.resource://com.udacity.sandwichclub/drawable/image_not_available</string>
+    <string name="no_ingredients_json_value">Unknown ingredients</string>
+
     <!-- Error messages-->
     <string name="detail_error_message">Sandwich data not available</string>
 

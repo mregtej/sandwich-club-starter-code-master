@@ -60,21 +60,21 @@ public class DetailActivity extends AppCompatActivity {
 
         if (savedInstanceState != null) {
 
-            String message = new String("");
+            String message;
             message = savedInstanceState.getString(ALSO_KNOWN_AS_TEXT_LABEL);
-            if(message != null & !message.equals("")) {
+            if(message != null && !message.equals("")) {
                 mAlsoKnownAsTextView.setText(message);
             }
             message = savedInstanceState.getString(ORIGIN_TEXT_LABEL);
-            if(message != null & !message.equals("")) {
+            if(message != null && !message.equals("")) {
                 mOriginTextView.setText(message);
             }
             message = savedInstanceState.getString(DESCRIPTION_TEXT_LABEL);
-            if(message != null & !message.equals("")) {
+            if(message != null && !message.equals("")) {
                 mDescriptionTextView.setText(message);
             }
             message = savedInstanceState.getString(SANDWICH_IMAGE_LABEL);
-            if(message != null & !message.equals("")) {
+            if(message != null && !message.equals("")) {
                 // Set sandwich image
                 Picasso.with(this)
                         .load(message)
@@ -82,11 +82,11 @@ public class DetailActivity extends AppCompatActivity {
                 sSandwichImageView = message;
             }
             message = savedInstanceState.getString(INGREDIENTS_TEXT_LABEL);
-            if(message != null & !message.equals("")) {
+            if(message != null && !message.equals("")) {
                 mIngredientsTextView.setText(message);
             }
             message = savedInstanceState.getString(TITLE_TEXT_LABEL);
-            if(message != null & !message.equals("")) {
+            if(message != null && !message.equals("")) {
                 setTitle(message);
             }
 
@@ -108,7 +108,7 @@ public class DetailActivity extends AppCompatActivity {
 
             String[] sandwiches = getResources().getStringArray(R.array.sandwich_details);
             String json = sandwiches[position];
-            Sandwich sandwich = JsonUtils.parseSandwichJson(json);
+            Sandwich sandwich = JsonUtils.parseSandwichJson(json, this);
             if (sandwich == null) {
                 // Sandwich data unavailable
                 closeOnError();
@@ -135,7 +135,7 @@ public class DetailActivity extends AppCompatActivity {
     /**
      * Fills in all TextView fields of DetailActivity (Sandwich additional info)
      *
-     * @param sandwich
+     * @param sandwich  Sandwich object for populating the UI
      */
     private void populateUI(Sandwich sandwich) {
 
@@ -144,7 +144,7 @@ public class DetailActivity extends AppCompatActivity {
         // Set Sandwich AlsoKnownAs
         size = sandwich.getAlsoKnownAs().size();
         for(int i = 0; i < size; i++) {
-            mAlsoKnownAsTextView.append("* " + sandwich.getAlsoKnownAs().get(i));
+            mAlsoKnownAsTextView.append(sandwich.getAlsoKnownAs().get(i));
             // Avoid additional "\n" after last element
             if(i != size - 1) {
                 mAlsoKnownAsTextView.append("\n");
@@ -160,7 +160,7 @@ public class DetailActivity extends AppCompatActivity {
         // Set Sandwich Ingredients
         size = sandwich.getIngredients().size();
         for(int i = 0; i < size; i++) {
-            mIngredientsTextView.append("* " + sandwich.getIngredients().get(i));
+            mIngredientsTextView.append(sandwich.getIngredients().get(i));
             // Avoid additional "\n" after last element
             if(i != size - 1) {
                 mIngredientsTextView.append("\n");
