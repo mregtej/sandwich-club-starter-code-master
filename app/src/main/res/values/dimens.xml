@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Main Activity paddings -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!-- Detail Activity dimensions and paddings -->
+    <dimen name="scrollview_detail_activity_landscape_width">284dp</dimen>
+    <dimen name="sandwich_imageview_detail_activity_portrait_height">200dp</dimen>
+    <dimen name="sandwich_imageview_detail_activity_landscape_width">284dp</dimen>
+    <dimen name="scrollview_detail_activity_portrait_vertical_padding">16dp</dimen>
+    <dimen name="sandwich_imageview_detail_activity_landscape_horizontal_margin">8dp</dimen>
+    <dimen name="sandwich_imageview_detail_activity_landscape_vertical_margin">8dp</dimen>
+    <dimen name="scrollview_detail_activity_landscape_horizontal_margin">8dp</dimen>
+    <dimen name="scrollview_detail_activity_landscape_vertical_margin">8dp</dimen>
+    <dimen name="scrollview_detail_activity_landscape_vertical_padding">16dp</dimen>
+
+    <!-- Detail Sandwich Data Fragment dimensions and paddings -->
+    <dimen name="textview_title_vertical_margin">16dp</dimen>
+    <dimen name="textview_title_horizontal_margin">16dp</dimen>
+    <dimen name="textview_value_vertical_margin">16dp</dimen>
+    <dimen name="textview_value_horizontal_margin">8dp</dimen>
+    <dimen name="textview_value_initial_horizontal_margin">32dp</dimen>
+
 </resources>

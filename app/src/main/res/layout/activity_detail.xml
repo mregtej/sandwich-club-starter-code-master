@@ -10,7 +10,7 @@
     <ImageView
         android:id="@+id/image_iv"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="@dimen/sandwich_imageview_detail_activity_portrait_height"
         android:adjustViewBounds="true"
         android:contentDescription="@string/sandwich_picture_content_description"
         android:scaleType="centerCrop" />
@@ -18,8 +18,8 @@
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:paddingTop="16dp"
-        android:paddingBottom="16dp"
+        android:paddingTop="@dimen/scrollview_detail_activity_portrait_vertical_padding"
+        android:paddingBottom="@dimen/scrollview_detail_activity_portrait_vertical_padding"
         android:fillViewport="true"
         android:background="@android:color/transparent"
         app:layout_constraintLeft_toLeftOf="@+id/image_iv"
