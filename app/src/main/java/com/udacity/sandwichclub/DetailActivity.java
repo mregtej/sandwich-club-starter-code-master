@@ -12,6 +12,9 @@ import com.squareup.picasso.Picasso;
 import com.udacity.sandwichclub.model.Sandwich;
 import com.udacity.sandwichclub.utils.JsonUtils;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class DetailActivity extends AppCompatActivity {
 
 
@@ -35,15 +38,20 @@ public class DetailActivity extends AppCompatActivity {
     private static final String TITLE_TEXT_LABEL = "title";
 
     /** Sandwich's Alias TextView (UI) */
-    private TextView mAlsoKnownAsTextView;
+    @BindView(R.id.also_known_tv)
+    TextView mAlsoKnownAsTextView;
     /** Sandwich's Origin TextView (UI) */
-    private TextView mOriginTextView;
+    @BindView(R.id.origin_tv)
+    TextView mOriginTextView;
     /** Sandwich's Description TextView (UI) */
-    private TextView mDescriptionTextView;
+    @BindView(R.id.description_tv)
+    TextView mDescriptionTextView;
     /** Sandwich's Ingredients TextView (UI) */
-    private TextView mIngredientsTextView;
+    @BindView(R.id.ingredients_tv)
+    TextView mIngredientsTextView;
     /** Sandwich's ImageView (UI) */
-    private ImageView mSandwichImageView;
+    @BindView(R.id.image_iv)
+    ImageView mSandwichImageView;
     /** Sandwich's Image-URL (savedInstanceState Bundle)*/
     private String sSandwichImageView;
 
@@ -52,12 +60,9 @@ public class DetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
-        mSandwichImageView = findViewById(R.id.image_iv);
-        mAlsoKnownAsTextView = findViewById(R.id.also_known_tv);
-        mOriginTextView = findViewById(R.id.origin_tv);
-        mDescriptionTextView = findViewById(R.id.description_tv);
-        mIngredientsTextView = findViewById(R.id.ingredients_tv);
-
+        // ViewBinding with ButterKnife
+        ButterKnife.bind(this);
+        
         if (savedInstanceState != null) {
 
             String message;
@@ -144,7 +149,7 @@ public class DetailActivity extends AppCompatActivity {
         // Set Sandwich AlsoKnownAs
         size = sandwich.getAlsoKnownAs().size();
         for(int i = 0; i < size; i++) {
-            mAlsoKnownAsTextView.append(sandwich.getAlsoKnownAs().get(i));
+            mAlsoKnownAsTextView.append("* " + sandwich.getAlsoKnownAs().get(i));
             // Avoid additional "\n" after last element
             if(i != size - 1) {
                 mAlsoKnownAsTextView.append("\n");
@@ -160,7 +165,7 @@ public class DetailActivity extends AppCompatActivity {
         // Set Sandwich Ingredients
         size = sandwich.getIngredients().size();
         for(int i = 0; i < size; i++) {
-            mIngredientsTextView.append(sandwich.getIngredients().get(i));
+            mIngredientsTextView.append("* " + sandwich.getIngredients().get(i));
             // Avoid additional "\n" after last element
             if(i != size - 1) {
                 mIngredientsTextView.append("\n");
